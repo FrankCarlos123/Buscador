@@ -1,0 +1,198 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    color: white;
+    min-width: 1200px;
+}
+
+.main-container {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Panel de búsqueda */
+.search-panel {
+    flex: 1;
+    min-width: 0;
+}
+
+.search-bar {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 4px;
+}
+
+.search-bar form {
+    display: flex;
+    gap: 10px;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#searchButton {
+    padding: 10px 20px;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Lista de productos */
+.products-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.product-item {
+    background: white;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.product-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.product-image-container {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Panel de etiquetas */
+.labels-panel {
+    width: 400px;
+    background: #444;
+    padding: 20px;
+    border-radius: 5px;
+    flex-shrink: 0;
+}
+
+.qr-header {
+    display: grid;
+    grid-template-columns: auto 25mm 50mm 25mm;
+    gap: 10px;
+    color: #999;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.label-group {
+    margin-bottom: 15px;
+}
+
+.qr-input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    gap: 10px;
+}
+
+.qr-input .number {
+    width: 30px;
+    color: #999;
+}
+
+.qr-input input {
+    flex: 1;
+    padding: 8px;
+    background: #333;
+    border: 1px solid #555;
+    color: white;
+    border-radius: 3px;
+}
+
+.label-row {
+    display: grid;
+    grid-template-columns: 25mm 50mm 25mm;
+    height: 25mm;
+    background: white;
+}
+
+.product-cell, .qr-cell {
+    width: 25mm;
+    height: 25mm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    background: white;
+}
+
+.product-cell img, .qr-cell img {
+    max-width: 23mm;
+    max-height: 23mm;
+    object-fit: contain;
+}
+
+.name-cell {
+    width: 50mm;
+    height: 25mm;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    background: white;
+    color: black;
+    text-align: center;
+}
+
+.print-button {
+    width: 100%;
+    padding: 12px;
+    background: #FFD700;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Estilos para impresión */
+@media print {
+    .search-panel {
+        display: none;
+    }
+
+    .labels-panel {
+        width: 100%;
+        background: none;
+        padding: 0;
+    }
+
+    .qr-input, .print-button {
+        display: none;
+    }
+
+    .label-row {
+        page-break-inside: avoid;
+    }
+}
